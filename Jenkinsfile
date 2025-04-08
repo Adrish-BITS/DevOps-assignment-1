@@ -22,6 +22,7 @@ pipeline {
         stage('Deploy to Staging') {
             steps {
                 echo 'Deploying to Staging...'
+                bat 'cp index.html ../staging/'  // Simulated deploy
             }
         }
 
@@ -33,7 +34,9 @@ pipeline {
 
         stage('Deploy to Production') {
             steps {
+                input message: 'Approve deployment to Production?'
                 echo 'Deploying to Production...'
+                bat 'cp index.html ../production/'  // Simulated deploy
             }
         }
     }
