@@ -19,10 +19,10 @@ pipeline {
             }
         }
 
-        stage('Deploy to Staging') {
+       stage('Deploy to Staging') {
             steps {
                 echo 'Deploying to Staging...'
-                bat 'cp index.html D:/staging'  // Simulated deploy
+                bat 'copy index.html D:\\staging\\'
             }
         }
 
@@ -36,7 +36,7 @@ pipeline {
             steps {
                 input message: 'Approve deployment to Production?'
                 echo 'Deploying to Production...'
-                bat 'cp index.html D:/production'  // Simulated deploy
+                bat 'copy index.html D:\\production\\'
             }
         }
     }
